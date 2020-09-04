@@ -1,0 +1,197 @@
+Tasks
+1.	Write a function that takes an array of positive integers. The function should calculate the sum of all even and odd integers and return an array containing the sums. The first index in the returned array should hold the sum of the even integers and the second index should hold the sum of the odd integers.
+
+function funcDeterminant(params){
+  even = []
+  odd = []
+  totalArray=[]
+  typecheck= null
+
+  // Type checking
+  params.forEach(arg=>{
+  if ((arg < 0) || (typeof arg != 'number')){
+    typecheck = false
+  }
+  else{
+    typecheck = true
+    }
+  })
+
+// checking for even / odd and pushing to appropriate array
+  if (typecheck == true){
+    params.forEach(arg=>{
+      if (arg%2==0){
+        even.push(arg)
+      }
+      else{
+        odd.push(arg)
+      }
+    })
+  } 
+  else{
+    console.log('Only Positive Integers are Allowed')
+  }
+  // sum of even Integers
+  sumEven =  even.reduce((a,b)=>{
+      return a+b
+    })
+  // sum of odd Integers
+  sumOdd =  odd.reduce((a,b)=>{
+      return a+b
+    })
+  totalArray.push(sumEven, sumOdd)
+  console.log(totalArray)
+ }
+// calling the function and passsing array of numbers
+funcDeterminant([4,5,6,9])
+2.	Write a function that accepts a positive integer and determines if it is a prime number. The function should return true, if it is a prime number or false if it isn’t.
+
+
+function test_prime(n)
+{
+
+  if (n===1)
+  {
+    return false;
+  }
+  else if(n === 2)
+  {
+    return true;
+  }else
+  {
+    for(var x = 2; x < n; x++)
+    {
+      if(n % x === 0)
+      {
+        return false;
+      }
+    }
+    return true;  
+  }
+}
+
+console.log(test_prime(37));
+
+
+3.	Write a function that accepts an array of positive integers and returns an array of all prime numbers from the given array. A prime number is a number that is only divisible by 1 and itself.
+
+
+ 
+// check if a number is prime 
+
+// function check whether a number 
+// is prime or not 
+function is_prime(n) 
+{ 
+	// Corner case 
+	if (n <= 1) 
+		return false; 
+
+	// Check from 2 to n-1 
+	for (i = 2; i < n; i++) 
+		if (n % i == 0) 
+			return false; 
+
+	return true; 
+} 
+
+// Driver Code 
+if(is_prime(11)) 
+	console.log("true"); 
+else
+	console.log("false"); 
+
+
+4.	Create a password validator function that takes in the password as its argument and returns an integer value you can evaluate to determine the password strength. Using the following validators:
+0 -> very weak e.g. a password with only strings
+1 -> weak e.g. a password with only numbers
+2 -> strong e.g. a password containing strings and numbers
+3 -> very strong e.g. a password containing strings, numbers and special characters (!,@,#,$,%, etc)
+5.	Write a method to replace all spaces in a string with '%20'.
+Example
+Input: "Mr John Smith "
+Output: "Mr%20John%20Smith"
+6.	Write a function that takes two parameters, an array and some number. The function should determine whether any three numbers in the array add up to the number. If it does, the function should return the numbers as an array. If it doesn’t, the function should return -1.
+Example
+Input: [1, 2, 3, 4, 5, 6], 6
+Output: [1, 2, 3]
+7.	Write a function that takes an array of positive integers and calculates the standard deviation of the numbers. The function should return the standard deviation.
+8.	Write a method to count the number of 3s that appear in all the numbers between 0 and n (inclusive). It should return an object containing the count of the number of 3s that appear and an array of the numbers that have 3s in them
+
+function count_3s(n); {
+	count = 0
+n > 0;
+	if (n % 10 == 3);
+		count = count + 1
+		n = int(n / 10);
+return count;
+}
+function count_in_range(n): {
+	count = 0
+	for i in range(2,n);
+		count = count + count_3s(i);
+	return count;
+}
+number = int(input(“Enter the number : “))
+console.log(count_in_range(number))
+
+
+Example:
+Input: 35
+Output: { count: 10, numbers: [3, 13, 23, 30, 31, 32, 33, 34, 35] }
+9.	Write a function that takes a string and determines if the string is a palindrome. A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam, racecar. The function should return “Yes” if the word is a palindrome and “No” if it isn’t. You are not to use the programming language’s existing function or method, if any.
+
+function palindrome(param){
+ reversed =""
+//  reversing the string
+  for(i=param.length-1; i>=0; i--){
+    reversed+=param[i]
+  }
+// checking if reversed is equal to original word
+  if (reversed==param){
+    console.log("YES")
+  }
+  else{
+    console.log("NO")
+  }
+}
+//calling the function
+palindrome('ada')
+palindrome('america')
+
+10.	Write a function that takes a string. The function should calculate the character in the string with the most occurrences and return that character. If more than one character has the most occurrences, return those characters as an array.
+Example
+Input: “afhuusnimr443o0sggg”
+Output: “g”
+
+Bonus Tasks
+Bonus 1:
+Building                                                    
+BuildingID	Int
+ComplexID	Int
+BuildingName	varchar(100)
+Address	varchar(100)
+Apartments                                            
+AptID	Int
+UnitNumber	varchar(10)
+BuildingID	Int
+Requests
+RequestID	Int
+Status	varchar(100)
+AptID	Int
+Description	varchar(100)
+Complexes
+ComplexID	Int
+ComplexName	varchar(100)
+Tenants
+TenantID	Int
+TenantName	varchar(100)
+AptTenants
+TenantID	Int
+AptID	Int
+Given the above SQL tables, write a query that:
+1.	 Gets a list of tenants who are renting more than one apartment.
+2.	 Write a SQL query to get a list of all buildings and the number of open requests (Requests in which status equals 'Open').
+Bonus 2:
+This challenge         asks you to take a string composed of only         lowercase letters and space characters, for         example, “hello world” and replace every consonant in the string with the next consonant in the alphabet. So in the above example, the output should be “jemmo xosmf” and you can see that we left every vowel in place and only changed the consonants. You should notice that the last letter changed was from “d” to “f” and not from “d” to “e” because “e” is a vowel.
+
